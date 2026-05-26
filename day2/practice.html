@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4-3 Do it - 1</title>
+    </head>
+    <body>
+        <h2>상품 구성</h2>
+        <table border="1">
+            <caption>선물용과 가정용 상품 구성</caption>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>47,000원</td>
+            </tr>
+        </table>
+<br>
+        <table border="2">
+            <caption>선물용과 가정용 상품 구성</caption>
+            <colgroup>
+                <col style="background-color: #eee;">
+                <col>
+                <col span="2" style="width: 150px;">
+            </colgroup>
+             <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>47,000원</td>
+            </tr>
+        </table>
+        <br>
+        <img src="./image/sydney.jpg" alt="sydney" width="100">
+        <img src="./image/sydney.jpg" srcset="./image/paris.jpg 100w, newyork.jpg 200w" alt="대체 텍스트">
+        <figcaption>Sydney.....v</figcaption>
+        <h3>Sydney</h3>
+        <br>
+        <!-- p.123 11번 문제 -->
+        <h1>수습 국원 지원 양식</h1>
+        <table border="1">
+            <tr>
+                <th rowspan="3" width="100">개인정보</th>
+                <th>이름</th>
+                <td width="200"> </td>
+            </tr>
+            <tr>
+                <th width="100">학과/학번</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>연락처</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>지원분야</th>
+                <th colspan="2"></th>
+            </tr>
+        </table>        
+<br>
+        <form>
+            <fieldset>
+                <legend>상품 선택</legend>
+            </fieldset>
+            <fieldset>
+                <legend>배송 정보</legend>
+            </fieldset>
+            <label>ID: <input type="text"></label>
+            <br>
+            <label for="user-id">ID(over 6 digit)</label>
+            <input type="text" id="user-id">
+<br>
+            <fieldset>
+                <label>아이디: <input type="text" id="user_id" size="10"></label>
+                <label>비밀번호: <input type="password" id="user_pw" size="10"></label>
+                <input type="submit" value="로그인">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>배송정보</legend>
+                <ul>
+                    <li>
+                        <label for="user-name">N a m e  </label>
+                        <input type="text" id="user-name">
+                    </li>
+                    <li>
+                        <label for="addr">Address</label>
+                        <input type="text" id="addr">
+                    </li>
+                    <li>
+                        <label for="mail">E - mail</label>
+                        <input type="email" id="mail">
+                    </li>
+                    <li>
+                        <label for="phone">P h o n</label>
+                        <input type="tel" id="phone">
+                    </li>
+                </ul>
+            </fieldset>
+            
+
+
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
