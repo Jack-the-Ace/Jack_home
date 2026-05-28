@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>P.167_No.12</title>
-        <link rel="stylesheet" href="./p.167.css">
+        <link rel="stylesheet" href="./p167.css">
     </head>
     <body id="size_p167">
         <fieldset>
@@ -11,7 +11,7 @@
             <h1>프런트엔드 개발자 지원서</h1>
             <p>HTML, CSS, 자바스크립트의 기술을 이해하고 실무 경험이 있는 분을 찾<br>습니다.</p>
             <hr>
-            <form action="p.167.php" method="post">
+            <form action="p167.php" method="post" enctype="multipart/form-data">
                 <dl>
                     <dt><h3>개인 정보</h3></dt>
                     <dd><label>이  름: <input type="text" name="name"></label></dd>
@@ -24,13 +24,17 @@
                     <dd><label><input type="radio" name="field" value="개발 환경 개선">개발 환경 개선</label></dd>
                 </dl>
                 <h3>지원 동기</h3>
-                <textarea name="msg" cols="60" rows="5" placeholder="본사 지원 동기를 간략히 써주세요! :)"></textarea>
-
+                <textarea name="msg" cols="60" rows="5" placeholder="본사 지원 동기를 간략히 써주세요! "></textarea><br>
+                <label>첨부파일: <input type="file" name="img"></label>
+                <hr>
                 <p>
                     <input type="submit" value="접수하기">
                     <input type="reset" value="다시 쓰기">
                 </p>
-
+            </form>
+            <hr>
+            <form action="p167-b.php" method="get">
+                <input type="submit" value="게시글 리스트 페이지로 이동">
             </form>
         </fieldset>
     </body>
