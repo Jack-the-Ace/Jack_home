@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document2</title>
+    <script>
+        var age=15;
+        if(age<20){
+            document.write("Not Adult!")
+        }else{
+            document.write("Adult!");
+        }
+        document.write('<hr>');
+        var n= 1;
+        if (n%2==0){
+            document.write("Even~@#$");
+        }else{
+            document.write("Odd~~@#@#@");
+        }
+        document.write('<hr>');
+        var score=91;
+        if(score>90){
+            document.write("A<br>Very Good!");
+        }else if(score>80){
+            document.write("B<br>Good~");
+        }else if(score>70){
+            document.write("C<br>Not Bad....");
+        }else if(score>60){
+            document.write("D<br>Hmm... Bad....");
+        }else{
+            document.write("F<br>Get Out!!!");
+        }
+        document.write('<hr>');
+        var aaa=100;
+        switch(aaa){
+            case 60:
+                document.write('Bad')
+                break
+            case 70:
+                document.write('Not Bad')
+                break
+            case 80:
+                document.write('little bit good')
+                break
+            case 90:
+                document.write('very good')
+                break
+            case 100:
+                document.write("Perfect!!!")
+                break
+            default:
+                document.write("You can input 60, 70, 80, 90, 100")
+        }
+        document.write('<hr>');
+        var n=1
+        while(n<5){
+            document.write(n*n*n*n+'<br>')
+            n++
+        }
+        // while(true){
+        //     var name=prompt("What's your name???")
+        //     if(name==''||name=='null'||name=='bye'){
+        //         break
+        //     }
+        //     document.write("My name is...",name,"<br>")
+        // }
+        document.write('<hr>');
+        for(dan=2; dan<10; dan++){
+            document.write(`[구구단 ${dan}단]<br>`)
+            for(n=1; n<10; n++){
+            document.write(dan," x ",n," = ",(dan*n),'<br>');
+            }
+            document.write('<hr>');
+        }
+          
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <table border="2" style="text-align: center;">
+        <tr><th>Table</th></tr>
+        <script>
+            for(var n=1;n<11;n++){
+                document.write(`<tr><td>제 ${n}번 테이블</td></tr>`);
+            }
+        </script>
+    </table>    
+</body>
+</html>

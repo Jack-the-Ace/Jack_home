@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_Free_note</title>
+    <style>
+        #wrap{
+            background-color: bisque; border: 2px solid black; padding: 5px;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows:  auto 200px 100px auto 300px;
+        }
+        #wrap>div{
+            background-color: aqua; border: 2px solid red; padding: 5px 5px;
+            font-size: 20px; text-align: center;
+        }
+        #header{grid-column-start: 1; grid-column-end: 6;height: 100px;}
+        #main{grid-column-start: 2; grid-column-end: 5; }
+        #footer{grid-column: 1/ span 5;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">HEADER</div>
+        <div id="nav">NAV</div>
+        <div id="main">MAIN</div>
+        <div id="aside">ASIDE</div>
+        <div id="footer">FOOTER</div>
+    </div>
+</body>
+</html>

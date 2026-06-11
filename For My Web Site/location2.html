@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2cf74be1aa764149b96061c654ad20ba"></script>
+</head>
+<body>
+    <button onclick="current_position()">현재 위치 확인</button>
+    <h3 id="lat_lng">위도(Latitude),  경도(Longitude)</h3>
+    <hr>
+    <button onclick="auto_update()">위치 자동 업데이트</button>
+    <button onclick="auto_up_stop()">자동 업데이트 종료</button>    
+    <hr>
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <p>
+        <button onclick="hideMarkers()">마커 감추기</button>
+        <button onclick="showMarkers()">마커 보이기</button>
+    </p>
+
+    <script>
+        var mapContainer = document.getElementById('map');
+        var map;
+        var movingChunsik = null; // 실시간 내 위치를 담당할 단 하나의 춘식이
+        var markers = [];         // 클릭해서 직접 생성한 마커들을 담을 배열
+        var watchId = null;
+
+        // 춘식이 마커 이미지 설정 (발끝 오프셋 15, 35 적용)
+        var imageSrc = 'https://jack.dothome.co.kr/jack1/image/chun-sik1.png', 
+            imageSize = new kakao.maps.Size(30, 35), 
+            imageOption = {offset: new kakao.maps.Point(15, 35)}; 
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
+        // [핵심 변경] 페이지가 열리자마자 사용자의 현재 위치를 바로 조사하여 지도를 띄웁니다.
+        window.onload = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    
+                    // 1. 사용자의 실제 현재 위치로 지도 시작점 설정
+                    initMap(lat, lng);
+                    
+                    // 2. '위치 자동 업데이트'를 처음에 자동으로 바로 실행되도록 연결합니다.
+                    auto_update();
+                }, function(error) {
+                    // 위치 권한 거부 등의 이유로 실패 시 기본 좌표(신림역)로 지도를 켭니다.
+                    alert("실제 위치를 가져올 수 없어 기본 위치로 시작합니다.");
+                    initMap(37.48480, 126.92955);
+                }, { enableHighAccuracy: true });
+            } else {
+                initMap(37.48480, 126.92955);
+            }
+        };
+
+        // 지도를 생성하고 초기 춘식이를 배치하는 함수
+        function initMap(lat, lng) {
+            var startPos = new kakao.maps.LatLng(lat, lng);
+            
+            var mapOption = { 
+                center: startPos, 
+                level: 3 
+            };
+            map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // 최초 춘식이 마커 1개 생성
+            movingChunsik = new kakao.maps.Marker({
+                position: startPos,
+                image: markerImage
+            });
+            movingChunsik.setMap(map);
+
+            // [유지] 지도를 클릭했을 때 클릭한 자리에 마커 추가 기능
+            kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+                addMarker(mouseEvent.latLng);             
+            });
+            
+            document.getElementById('lat_lng').innerHTML = '위도: ' + lat + ', <br>경도: ' + lng;
+        }
+
+        // 클릭했을 때 마커를 누적해서 생성하는 함수
+        function addMarker(position) {
+            var marker = new kakao.maps.Marker({
+                position: position,
+                image: markerImage 
+            });
+            marker.setMap(map);
+            markers.push(marker);
+        }
+
+        // 내 위치가 바뀔 때마다 실행되어 춘식이를 단 한 개만 유지하며 이동시키는 함수
+        function updateMyLocation(position) {
+            if (movingChunsik) {
+                movingChunsik.setPosition(position); // 마커를 새로 만들지 않고 위치만 계속 교체!
+            }
+            map.panTo(position); // 지도의 중심도 부드럽게 이동
+        }
+
+        // 현재 위치 버튼 클릭 시 (단발성 수동 갱신)
+        function current_position(){
+            if (!navigator.geolocation) return;
+            navigator.geolocation.getCurrentPosition(function(position){
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                document.getElementById('lat_lng').innerHTML = '위도: ' + lat + ', <br>경도: ' + lng;
+                
+                var currentPos = new kakao.maps.LatLng(lat, lng);
+                updateMyLocation(currentPos);
+            }, null, { enableHighAccuracy: true });
+        }
+        
+        // 위치 실시간 추적 실행 함수
+        function auto_update(){
+            if (!navigator.geolocation || watchId !== null) return; 
+
+            watchId = navigator.geolocation.watchPosition(function(position){
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                document.getElementById('lat_lng').innerHTML = '위도: ' + lat + ', <br>경도: ' + lng;
+                
+                var currentPos = new kakao.maps.LatLng(lat, lng);
+                updateMyLocation(currentPos);
+            }, function(error){
+                console.log('위치 추적 오류:', error.message);
+            }, {
+                enableHighAccuracy: true, // GPS 센서 우선 활용
+                maximumAge: 0,
+                timeout: 5000
+            });
+        }
+        
+        // 자동 업데이트 종료
+        function auto_up_stop(){
+            if (watchId !== null) {
+                navigator.geolocation.clearWatch(watchId);
+                watchId = null;
+                alert("자동 업데이트가 중지되었습니다.");
+            }
+        }
+
+        // 마커 숨기기 / 보이기 제어
+        function setMarkers(mapTarget) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(mapTarget);
+            }       
+            if (movingChunsik) {
+                movingChunsik.setMap(mapTarget);
+            }
+        }
+
+        function showMarkers() { setMarkers(map); }
+        function hideMarkers() { setMarkers(null); }
+    </script>
+</body>
+</html>

@@ -16,7 +16,7 @@ if($result_table){
         $name=$row['name'];
         $phone=$row['phone'];
         $field=$row['field'];
-        $msg=$row['msg'];
+        $msg=$row['message'];
         $file=$row['file'];
         $date=$row['date'];
 

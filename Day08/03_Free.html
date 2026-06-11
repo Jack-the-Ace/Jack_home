@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_Free_Note</title>
+    <style>
+        .container{background-color: beige;
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-columns: 1fr 3fr 1fr;
+
+            grid-template-rows: 100px 200px 150px;
+
+            gap: .5rem .5rem;
+        }
+        .container>div{background-color: cornflowerblue; 
+        border: 2px dotted red; margin: 2px; padding: 2px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="c1">1</div>
+        <div id="c2">2</div>
+        <div id="c3">3</div>
+        <div id="c4">4</div>
+        <div id="c5">5</div>
+        <div id="c6">6</div>
+        <div id="c7">7</div>
+    </div>
+    <style>
+        #c1{grid-column-start: 1; grid-column-end: 4;}
+        #c2{grid-column-start: 1; grid-column-end: 3;}
+        #c3{grid-row: 3 /span 13;}
+        #c6{grid-row: 4 /span 13;}
+        
+    </style>
+</body>
+</html>

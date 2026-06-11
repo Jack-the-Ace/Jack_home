@@ -1,0 +1,21 @@
+h2{color: red;}
+p{color: green; font-family: serif; font-size: 16px; color: blue;}
+/* *{font-style: italic; color: gray;} */
+#p1{font-weight: 800; color: blueviolet;}
+.aa{color: darkmagenta;}
+p.aa{font-weight: 700; color: black;}
+li{color: brown;}
+#kk>p{font-weight: bold; color: blue; background-color: blue;}
+#kk p{color: chartreuse;}
+#ss ul#gg li{background-color: aquamarine;}
+p[class]{font-size: 30px;}
+ul[id="gg"]{font-weight: bold;}
+a:link{color: blue;}
+a:visited{font-style: italic;}
+a:hover{font-weight: bold;}
+a:active{font-size: larger;}
+#ss ul li:first-child{color: red;}
+#ss ul li:last-child{color: blue;}
+#ss ul li:nth-child(2){background-color: chocolate;}
+#ss ul li:nth-child(2n+1){background-color: cornflowerblue;}
+

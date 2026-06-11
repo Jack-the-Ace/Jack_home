@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>3_Free</title>
+        <style>
+            p{font-family: 'Times New Roman', Times, serif;}
+            p{font-family: 'Webdings',monospace;}
+            p{font-family: '휴먼옛체',serif;}
+            p{font-family: fantasy;}
+            @font-face {
+                font-family: 'my font';
+                src: url(./font/CookieRun\ Black.otf);
+            }
+            p{font-family: 'my font',monospace;}
+            p{font-size: 30px;}
+            p{font-size: large;}
+            p{font-weight: bold;}
+            p{font-style: italic;}
+            p{font: bold italic 1.2em 'my font',serif;}
+
+            p{text-align: center;}
+            p{text-transform: uppercase;}
+            p{text-decoration: line-through;}
+            p{text-shadow: 3px 3px 10px blue;}
+
+            p.aa{
+                width: 3em;
+                border: 3px solid red;
+                word-wrap: break-word;
+            }
+            p.bb{
+                column-count: 3;
+                column-gap: 50px;
+                column-rule: 10px dotted yellowgreen;
+            }
+            #aa:link{color: blue;}
+            #aa:visited{color: green;}
+            #aa:hover{color: red; font-size: 2.0em;}
+            #aa:active{color: yellow;}
+
+            p:hover{background-color: green;}
+
+             ul{list-style: circle;}
+            ul{list-style: disc;}  /*디폴트*/
+            ul{list-style: square;} 
+
+            /* 이미지로 블릿기호를 대체하는 방식은 잘 사용안함. 사이즈 문제나 꾸밈이 어려움 */
+            /* ul{list-style-image: url('../Day01/image/paris.jpg');}  */
+            ul{list-style-type: disc; list-style-position: outside;}
+            ul{list-style: none;}
+
+            ol{list-style-type: lower-alpha;}
+            ol{list-style-type: lower-roman;}
+            ol{list-style-type: lower-greek;}
+            ol{list-style-type: upper-alpha;}
+            ol{list-style-type: decimal;}  /*default*/
+            ol{list-style-type: decimal-leading-zero;}
+
+        </style>
+    </head>
+    <body>
+        <p>Hello World</p>
+        <p>한글은 어떠한가!</p>
+        <p id="aa">한글은 전혀 문제없이 워드랩 됩니다~!
+            asdasdasdasdasda sdasqweqweqwezxczxzczxycuiyuoijgljhgl,mnb,mnb,qwesadasdzczx
+        </p>
+        <hr>
+        <p id="bb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quasi sapiente necessitatibus esse nihil corrupti, maiores, facilis minima rem voluptas, maxime dolor! Labore aut vero ex illo veniam omnis ipsum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio doloribus deserunt culpa harum nostrum quibusdam accusamus veritatis, impedit mollitia. Reprehenderit ipsam aliquam ab doloremque voluptatum optio eius fugiat recusandae esse.</p>
+
+        <hr>
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <ol>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ol>
+
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_objecr</title>
+    <script>
+        var person={name:'sam',age:20,
+            show:function(){
+                // document.write('show..<br>');
+                // document.write('show: ',name,', ',age,'<br>');
+
+                document.write('Show: ',this.name,', ',this.age,'<br>');
+            }
+        }
+        document.write(person.age,'<hr>');
+        person.show();
+        document.write(`<hr>`);
+
+        var person2={name:'robin',age:25,
+            show:function(){
+                return `show: ${this.name}, ${this.age}<br>`;
+            },add:function(x,y){
+                return `add: ${x+y}<br>`;
+            }
+        }
+        person2.show();
+        person2.add(2,3);
+        document.write(person2.show(),' , ',person2.add(1,2));
+
+        person2.fire='water';
+        document.write(`${person2.fire}<hr>`);
+
+        person2.output=function(){
+            document.write(`go: ${person2.name}, ${person2.age}, ${person2.fire},,yes<hr>`);
+        }
+        person2.output();
+        document.write(person2.fire,'<hr>');
+
+        function Student(name='이름',age='나이',occupy='직업',element='속성'){
+            this.name=name;
+            this.age=age;
+            this.occupy=occupy;
+            this.element=element;
+            this.show=function(){
+                document.write(`gogo: ${this.name}, ${this.age}, ${this.occupy}, ${this.element}...gogo<br>`);
+            }
+        }
+        var stu=new Student();
+        stu.show();
+
+        var stu1=new Student();
+        stu1.name='Real';
+        stu1.age=14;
+        stu1.occupy='wizard';
+        stu1.element='water';
+        stu1.show();
+
+        var stu2=new Student('Kane',22,'warrior','rock');
+        stu2.show();
+
+        if('class' in stu){
+            document.write('yes<br>')
+        }else{
+            document.write('No<br>')
+        }
+
+        var stu3=new Student('Grook',31,'knight',{first:'fire',second:'wind'});
+        stu3.show();
+        document.write(`${stu3.name}'s second element is ${stu3.element.second}.<hr>`);
+
+        Student.prototype.show=function(){
+            document.write(`user: ${this.name}, ${this.age}, ${this.occupy}, ${this.element}<br>`);
+        }
+        var u1=new Student('sam',21);
+        var u2=new Student('footer',56,'archer','water');
+
+        u1.show();
+        u2.show();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

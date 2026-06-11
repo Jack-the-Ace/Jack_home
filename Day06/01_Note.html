@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>01_Free Study</title>
+        <style>
+            p.aaa{
+                border-style: solid;
+                border-top-style: double;
+                border-width: 5px;
+                border-bottom-width: 3px;
+                border-color: aqua;
+                border-right-color: black;
+                border-radius: 25px;
+                border-bottom-left-radius: 30%;
+                border-top-right-radius: 0px;
+                border: 20px solid #000000ff;
+                border: 10px solid transparent;
+                border-image-source: url('./image/border.png');
+                border-image-slice: 20 20;
+                border-image-repeat:inherit;
+
+                width: 70%;
+                height: 300px;
+                
+                margin-left: 50px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            a{background-color: red; width: 400px;}
+            em{background-color: aqua; width: 100px;}
+            img{width: 200px; border: 4px double black;}
+            input{width: 50%; background-color: beige;}
+            strong{margin-left: 200px;}
+            strong{margin-right: auto;}
+            img{margin: auto;}
+            strong{display: block; background-color: azure; width: 200px; margin-left: auto;}
+        </style>
+        <style>
+            #p1{background-color: violet; height: 50px; margin: 0px; margin-bottom: 10px; text-align: center;}
+            #p2{background-color: rgb(79, 190, 153); width: 200px; height: 50px; margin: 0px; margin-top: -30px; text-align: right;}
+        </style>
+    </head>
+    <body>
+        <h2>박스모델(액자 크기 및 배경과 경계선)</h2>
+    
+        <!-- 1. 경계선 border / 요소크기 / 수평 중앙 정렬-->
+        <p class="aaa">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eos rem incidunt, debitis animi sint quam error maxime repellendus cum et, ea officia quod dicta aperiam enim sequi eum veniam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, voluptate eius odio aliquid molestiae culpa dolore quisquam rem at et facilis quidem eveniet quaerat harum cumque suscipit, sint consequatur totam!
+        </p>
+
+        <!-- 요소 크기는 블럭요소만 적용 가능함 -->
+        <!-- 인라인요소 -->
+        <a href="">네이버</a>
+        <em>Hello css</em>
+
+        <!-- 인라인요소 중에서 크기 지정이 가능한 요소도 존재함-->
+        <!-- 인라인-블록 요소 -->
+        <img src="./image/image.png" alt="image">
+        <input type="text">
+
+        <!-- 마진 auto는 block 요소만 적용됨 -->
+        <strong>WEB</strong>
+
+        <hr>
+
+        <!-- 마진에 대한 추가 실습 -->
+        <div id="bbb">
+            <p id="p1">P#1</p>
+            <p id="p2">P#2</p>
+        </div>
+
+        <hr>
+
+        <!-- 배경 -->
+        <p class="ccc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ut quam ea doloribus et, atque suscipit quas voluptatibus quasi aut quaerat totam vero, molestiae esse, inventore ipsam possimus quibusdam. Dignissimos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nisi, maiores quas, ea omnis consectetur ullam rem facilis placeat accusantium ducimus pariatur quisquam. Dolor, exercitationem. Reiciendis nobis debitis officia consequatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, tempore? Natus fugit ipsam amet eaque minus enim tempora tenetur commodi, iste molestiae in sapiente quia ipsum odit ullam non dolorem?
+        </p>
+        <!-- 내부 스크립트 -->
+        <style>
+            p.ccc{
+                background-color:darkseagreen;
+                background-image: url('./image/rabbit.png');
+                background-size: 100px 150px;
+                background-repeat: repeat;
+                background-repeat: no-repeat;
+                /* background-repeat: repeat-y; */
+                background-position: center;
+                background-position: right top;
+                background-position: center top;
+
+                background: antiquewhite url('./image/lion.png') no-repeat center right;
+                margin: 10px 30px;
+                padding: 10px 10px 10px 10px;
+            }
+        </style>
+
+        <hr>
+
+        <!-- background-attachment -->
+        <p class="ddd">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit voluptatibus, consequuntur sapiente, ut fuga voluptatem pariatur reiciendis quod consequatur praesentium voluptate eveniet cum omnis eligendi recusandae quaerat optio debitis rerum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas numquam unde cumque. Vitae repellendus, ex nesciunt, aperiam harum mollitia iure quia omnis reiciendis laudantium architecto qui est fugit a hic!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, provident odit nam unde ratione optio, hic cum tempore asperiores in ipsam facere ab voluptas quisquam sunt soluta enim fuga dignissimos.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi libero iusto nobis ea magnam consequatur voluptatibus, eum reiciendis necessitatibus autem repellat consequuntur aperiam et voluptatum exercitationem alias error deserunt harum.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, a perferendis? Illo sint dolore rerum quod. Est quibusdam magni unde error culpa quidem fugit, explicabo, enim ea architecto harum accusamus?
+        </p>
+        <style>
+            p.ddd{
+               width: 70%;
+               height: 300px;
+               border: 4px dotted green;
+               overflow: auto;
+               margin-right: auto;
+               margin-left: auto;
+
+               background-image: url('./image/computer.png');
+               background-repeat: no-repeat;
+               background-size: 150px 500px;
+               background-position: center;
+               background-attachment: scroll;
+               background-attachment: local;
+               background-attachment: fixed;
+            }
+        </style>
+    </body>
+</html>

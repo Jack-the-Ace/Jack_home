@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="aaa()">Add Text Node</button>
+    <button onclick="bbb()">Add Element Node</button>
+    <button onclick="ccc()">Remove Child node</button>
+    <p id="pp"></p>
+    <script>
+        function aaa(){
+            // var node=document.createTextNode('This is Text!');
+            // //var node=document.createTextNode('<a href="">This is text..</a>');
+            // var p=document.getElementById('pp');
+            // p.appendChild(node);
+
+            var p=document.getElementById('pp');
+            p.textContent='~_!This is Text';
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">네이버</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+//---------------------------------------------------------------------------------------------------------------------
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent='This is Text'
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+//------------------------------------------------------------------------------------------------------------------------
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent='This is Text'
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent="This is Text"
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.firstChild);
+        }
+//===========================================================================================================================
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent="This is Text"
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="HTTPS://WWW.NAVER.COM">NAVER</a>';
+        }        
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+        //=================================================================================================================================
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent="This is Text"
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+        //============================----------------------=====================-----------------------------------------===================
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent='thisistext'
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.firstChild);
+        }
+//=================================================================================================================================================
+        function aaa(){
+            var p=document.getElementById('pp');
+            p.textContent='asdfasdasd';
+        }
+        function bbb(){
+            var p=document.getElementById('pp');
+            p.innerHTML+='<a href="https://www.naver.com">NAVER</a>';
+        }
+        function ccc(){
+            var p=document.getElementById('pp');
+            p.removeChild(p.lastChild);
+        }
+//===================================================================================================================================================
+    </script>
+    <hr>
+    <p>This is paragraph</p>
+    <button onclick="ddd(this)">Change Style</button>
+    <script>
+        function ddd(e){
+            var p=e.previousElementSibling;
+            p.style.color='red';
+        }
+    </script>
+    <hr>
+    <div id="wrap">
+        <p>Nice to Meet You</p>
+        <h4>aaa</h4>
+        <h4>bbb</h4>
+        <h4>ccc</h4>
+    </div>
+    <script>
+        var p=document.querySelector('#wrap p');
+        p.style.color='blue';
+        var h4s=document.querySelectorAll('#wrap>h4');
+        h4s[0].style.color='red';
+        h4s[1].style.color='green';
+//===========================================================================================
+        var p=document.querySelector('#wrap p');
+        p.style.color='blue';
+        var h4s=document.querySelectorAll('#wrap>h4');
+        h4s[0].style.color='red';
+        h4s[1].style.color='green';
+        h4s[2].style.color='blue';
+        //================================================================================
+        var p=document.querySelector('#wrap p');
+        p.style.color='blue';
+        var h4s=document.querySelectorAll('#wrap>h4');
+        h4s[0].style.color='red';
+        h4s[1].style.color='green';
+        h4s[2].style.color='blue';
+        //=================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

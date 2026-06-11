@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_Free_Note</title>
+    <style>
+        header{grid-area: aa;}
+        nav{grid-area: bb;}
+        main{grid-area: cc;}
+        aside{grid-area: dd;}
+        footer{grid-area: ee;}
+
+        #wrap{
+            display: grid;
+            grid-template-areas: 'aa aa aa aa aa''bb cc cc cc dd''ee ee ee ee ee';
+            grid-template-rows: auto 200px auto;
+            grid-template-columns: auto 250px auto;
+        }
+        #wrap>*{
+            background-color: antiquewhite; border: 4px double blue;
+            padding: 5px 10px; text-align: center; font-weight: bold; font-size: 30px;
+
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <h2>Grid area를 이용한 Layout 구조</h2>
+
+    <div id="wrap">
+        <header>
+            <div>LOGO</div>
+            <div>TITLE</div>
+            <div>OPTIONS</div>
+        </header>
+        <nav>MENU</nav>
+        <main>CONTENT</main>
+        <aside>SIDE</aside>
+        <footer>INFORMATION</footer>
+    </div>    
+</body>
+</html>

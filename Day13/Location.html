@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <script>
+        function current_position(){
+            window.navigator.geolocation.getCurrentPosition(function(position){
+                var lat=position.coords.latitude;
+                var lng=position.coords.longitude;
+                document.getElementById('lat_lng').innerHTML='위도: '+lat+', <br>경도: '+lng;
+            }, function(error){
+                alert(error.code + '\n' + error.message);
+            })
+        }
+        var id;
+        function auto_update(){
+            id=navigator.geolocation.watchPosition(function(position){
+                var lat=position.coords.latitude;
+                var lng=position.coords.longitude;
+                document.getElementById('lat_lng').innerHTML='위도: '+lat+', <br>경도: '+lng;
+            })
+        }
+        function auto_up_stop(){
+            navigator.geolocation.clearWatch(id);
+        }
+    </script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2cf74be1aa764149b96061c654ad20ba"></script>
+    <script src="./kakaomap3.js" defer></script>
+</head>
+<body>
+    <button onclick="current_position()">현재 위치</button>
+    <h3 id="lat_lng">위도(Latitude),  경도(Longitude)</h3>
+    <hr>
+    <button onclick="auto_update()">위치 자동 업데이트</button>
+    <button onclick="auto_up_stop()">자동 업데이트 종료</button>    
+    <hr>
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <p>
+        <button onclick="hideMarkers()">마커 감추기</button>
+        <button onclick="showMarkers()">마커 보이기</button>
+    </p>
+
+</body>
+</html>

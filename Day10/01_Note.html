@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Note</title>
+    <script>
+        var aaa=[10,20,30];
+        document.write(aaa+'<br>');
+        document.write(aaa[0]+`<br>`);
+        document.write(aaa[1]+'<br>');
+        document.write(aaa[2]+"<br>");
+        document.write(aaa[3]+`<hr>`);
+        document.write("요소 갯수: "+aaa.length+"개<br>");
+        document.write(`요소갯수: ${aaa.length}개<br>`);
+        document.write(`요소 갯수: ${aaa.length} 개!<hr>`);
+        aaa[7]='Jack';
+        document.write(`요소 갯수: ${aaa.length} 개!<hr>`);
+        for(var n=0; n<aaa.length; n++){document.write(aaa[n],'<br>');}
+        document.write(`<hr>`);
+
+        bbb=new Array(4,5,6);
+        for(n=0;n<bbb.length;n++){
+            document.write(bbb[n],'//');
+        }
+        for(var zinc in bbb){
+            document.write(bbb[zinc],`/`);
+        }
+        document.write(`<hr>`);
+        var ccc=new Array();
+        document.write(`요소개수:${ccc.length}개`);
+        document.write(`<hr>`)
+        ccc[0]='asd';ccc[1]=23;ccc[2]=2>1;ccc[3]=new Date();
+        document.write(ccc,'<hr>')
+        for(n=0; n<ccc.length; n++){
+            document.write(`${ccc[n]}<br>`);
+        }
+        document.write("===========================================================<br>");
+        ccc['name']='asd';ccc['age']=23;ccc['okay']=new Date();
+        document.write(`1st: ${ccc[2]}<br>`);
+        document.write(`개수: ${ccc.length} 개<hr>`);
+
+        var ggg=new Array();  // 빈 배열
+        var a1=[10,20,30];
+        var a2=['aa','bb','cc'];
+        var a3=[true, false, false, true];
+
+        ggg[0]=a1;
+        ggg[1]=a2;
+        ggg[2]=a3;
+
+        document.write(ggg[2]);
+        document.write(`<hr>`);
+        for(n=0; n<ggg[2].length; n++){
+            document.write(`This is ${ggg[2][n]}~!<br>`);
+        }
+    </script>    
+</head>
+<body>    
+</body>
+</html>

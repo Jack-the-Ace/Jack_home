@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a=10;
+        document.write(a);
+        document.write('<br>');
+        document.write('a'+a);
+        document.write('<br>');
+        var b=new Date();
+        document.write(b);
+        document.write('<hr>');
+        for(var i=1; i<11; i++){
+            document.write(i+" x "+5+" = "+(i*5)+"<br>");
+        }
+        document.write('<hr>');
+        document.write(typeof('hello')+'<br>');
+        document.write(typeof(3)+'<br>')
+        document.write(typeof(3.00)+'<br>')
+        document.write(typeof(4<0)+'<br>')
+        e='6';
+        document.write(typeof(e)+'<br>');
+        document.write('<hr>');
+        var h=function(){
+            document.write("Wow!");
+        }
+        document.write(h);document.write('<br>');h();
+        document.write('<br>');document.write(typeof(h));
+        document.write('<hr>');
+        var s="Hi, Hello~!@#"
+        document.write(s.length);
+        document.write('<br>');
+        document.write(s.toUpperCase())
+        document.write('<br>');
+        // document.write(s.charAt(2));
+        // document.write('<br>');
+        document.write(s.replace('e','F'));
+        document.write('<hr>');
+        var person={name:'sam',age:20,address:'seoul'}
+        document.write(person);
+        document.write('<h2>');
+            document.write(person.name,person.age,person.address);
+            document.write('<br>');
+            document.write(person.name,20+20);
+        document.write('</h2>');
+        document.write('<hr>');
+        var b=3.14e-6
+        document.write(b);
+        document.write('<hr>');
+        document.write(10/3);
+        document.write('<hr>');
+        var age=5; height=130;
+        if(!(age>10)){
+            document.write('go');
+        }
+        document.write('<hr>');
+        document.write(-10>>2);
+        document.write('<hr>');
+        num=1
+        document.write(num++);
+        document.write(num++);
+        document.write(num++);
+        document.write(num++);
+        document.write('<br>');
+        num=1
+        document.write(++num);
+        document.write(++num);
+        document.write(++num);
+        document.write(++num);
+        document.write('<hr>');
+        var x=5;  y=(x>10)?'A':'b'
+        document.write(y);
+        document.write('<hr>');
+        var score=91;
+        var grade=(score>90)?'A':(score>80)?'B':(score>70)?'C':(score>60)?'D':'F'
+        document.write(grade+" 학점"+'<hr>');
+        var age=parseFloat(prompt("How old are you? :)"));
+        document.write("The Korean Age is... "+(age+2)+"<br>");
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
