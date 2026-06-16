@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script>
+        function aaa(){
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    document.getElementById('kk').innerHTML=xhr.responseText;
+                }
+            }
+            xhr.open('GET','./getTest.php?name=SAM&pw=1234',true);
+            xhr.send();
+        }
+        function bbb(){
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    document.getElementById('kk').innerHTML=xhr.responseText;                    
+                }
+            }
+            xhr.open('POST','./postTest.php',true);
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.send('name=ROBIN&pw=2222');
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <button onclick="aaa()">GET 방식으로 데이터 요청</button>
+        <button onclick="bbb()">POST 방식으로 데이터 요청</button>
+    </p>
+    <hr>
+    <div id="kk"></div>    
+</body>
+</html>

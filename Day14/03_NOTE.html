@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function aaa(){
+            var name=document.querySelector('#in1').value;
+            var password=document.querySelector('#in2').value;
+            var url='./getTest.php?name='+name+'&pw='+password;
+            fetch(url).then(function(response){
+                return response.text();
+            }).then(function(text){
+                document.getElementById('resul_area').innerHTML=text;
+            })
+        }
+        function bbb(){
+            var name=document.querySelector('#in1').value;
+            var password=document.querySelector('#in2').value;
+            var data=`name=${name}&pw=${password}`;
+            fetch('./postTest.php',{
+                method:'POST',
+                headers:{'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'},
+                body:data
+            }).then(function(response){
+                return response.text();
+            }).then(function(text){
+                document.getElementById('result_area').innerHTML=text;
+            })
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="이름 입력" id="in1">
+    <input type="text" placeholder="비밀번호 입력" id="in2">
+    <hr>
+    <button onclick="aaa()">GET 방식으로 데이터 전송 by fetch</button>
+    <button onclick="bbb()">POST 방식으로 데이터 전송 by fetch</button>
+    <hr>
+    <div id="result_area"></div>
+</body>
+</html>

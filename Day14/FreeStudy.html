@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax open api</title>
+    <style>
+        /* 기본 스타일 및 배경 설정 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 30px 20px;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #111;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(110, 142, 251, 0.4);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(110, 142, 251, 0.6);
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 40px 0;
+        }
+
+        /* ✨ 영화 카드가 배치될 그리드 레이아웃 */
+        #movie-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 30px auto 0 auto;
+            padding: 0;
+        }
+
+        /* 🎬 개별 영화 카드 스타일 */
+        .movie-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 🥇 순위 배지 */
+        .rank-badge {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(255, 65, 108, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 🔼 🔽 순위 변동 표시 스타일 */
+        .rank-inten {
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* 🏷️ 신규 진입 마크 */
+        .badge-new {
+            background: #f39c12 !important;
+        }
+
+        /* 🔤 영화 제목 */
+        .movie-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: #2c3e50;
+            word-break: keep-all;
+        }
+
+        /* 📋 상세 정보 텍스트 */
+        .movie-info {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin: 6px 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #f1f2f6;
+            padding-bottom: 6px;
+        }
+        .movie-info:last-child {
+            border-bottom: none;
+        }
+        .movie-info span {
+            font-weight: 600;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="aaa()">다른 서버의 xml 데이터를 읽어오기</button>
+    <script>
+        function aaa(){
+            fetch('http://www.w3schools.com/XML/cd_catalog.xml')  
+            .then(function(res){return res.text()})
+            .then(function(text){
+                alert(text);
+            })    
+        }
+    </script>
+
+    <hr>
+
+    <h2>🎬 영화진흥위원회 OPEN API - 오늘의 박스오피스</h2>
+    <button onclick="bbb()">박스오피스 순위 새로고침</button>
+    
+    <!-- 텍스트 대신 깔끔한 카드가 주입될 공간으로 변경합니다 -->
+    <div id="movie-container"></div>
+
+    <script>
+        function bbb(){
+            // 로딩 메시지 표시
+            document.getElementById('movie-container').innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#999;'>영화 정보를 불러오는 중입니다...</p>";
+
+            fetch('./openapi.php')
+            .then(function(res){ return res.text() }) // PHP가 준 순수 텍스트(JSON 문자열)를 받음
+            .then(function(text){
+                
+                // [수행과제 해결 핵심!!] 
+                // 1. 받아온 문자열(text)을 실제 자바스크립트 객체(JSON)로 변환합니다.
+                var obj = JSON.parse(text);
+                
+                // 2. 박스오피스 배열 데이터만 추출합니다.
+                var boxOfficeList = obj.boxOfficeResult.dailyBoxOfficeList;
+                
+                // 3. 화면을 꾸밀 HTML 코드를 동적으로 작성합니다.
+                var htmlStr = "";
+
+                // 배열을 순회하며 카드 HTML 생성
+                for(var i=0; i<boxOfficeList.length; i++) {
+                    var movie = boxOfficeList[i];
+
+                    // 순위 변동 디자인 처리
+                    var intenStr = "";
+                    var isNew = movie.rankOldAndNew === "NEW";
+                    var inten = parseInt(movie.rankInten);
+
+                    if (isNew) {
+                        intenStr = "NEW";
+                    } else if (inten > 0) {
+                        intenStr = "▲" + inten;
+                    } else if (inten < 0) {
+                        intenStr = "▼" + Math.abs(inten);
+                    } else {
+                        intenStr = "-";
+                    }
+
+                    // 숫자 3자리마다 콤마(,) 추가하는 포맷 변환
+                    var audiCnt = Number(movie.audiCnt).toLocaleString();
+                    var audiAcc = Number(movie.audiAcc).toLocaleString();
+
+                    // 카드 한 조각 만들기
+                    htmlStr += '<div class="movie-card">';
+                    // 신규 진입이면 배지 색상을 다르게 지정
+                    if(isNew) {
+                        htmlStr += '  <div class="rank-badge badge-new">' + movie.rank + '위 <span class="rank-inten">' + intenStr + '</span></div>';
+                    } else {
+                        htmlStr += '  <div class="rank-badge">' + movie.rank + '위 <span class="rank-inten">' + intenStr + '</span></div>';
+                    }
+                    htmlStr += '  <div class="movie-title">' + movie.movieNm + '</div>';
+                    htmlStr += '  <div class="movie-info">개봉일 <span>' + movie.openDt + '</span></div>';
+                    htmlStr += '  <div class="movie-info">당일 관객 <span>' + audiCnt + ' 명</span></div>';
+                    htmlStr += '  <div class="movie-info">누적 관객 <span>' + audiAcc + ' 명</span></div>';
+                    htmlStr += '</div>';
+                }
+
+                // 4. 완성된 카드 묶음을 화면(div)에 이쁘게 적용합니다.
+                document.getElementById('movie-container').innerHTML = htmlStr;
+
+            })
+            .catch(function(err){
+                document.getElementById('movie-container').innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:red;'>데이터 처리 중 오류가 발생했습니다.</p>";
+                console.error(err);
+            });
+        }
+    </script>
+    
+</body>
+</html>
