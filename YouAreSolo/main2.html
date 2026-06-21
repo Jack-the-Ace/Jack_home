@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너는솔로 - Solo Escape</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        /* 기본 배경 및 폰트 설정 */
+        body {
+            background-color: #f4f8fa; /* 눈이 편안한 아주 밝은 심해/하늘색 톤 배경 */
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 상단 타이틀 */
+        h3 {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3a8bcd; /* 신뢰감을 주는 스카이 블루 */
+            margin: 25px 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* 구분선 스타일리시하게 변경 */
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #bedaf3, transparent);
+            margin-bottom: 20px;
+        }
+
+        /* 메인 컨테이너 (최대 450px 모바일 최적화) */
+        #wrap {
+            display: grid;
+            grid-template-areas: 
+                'aa aa aa aa'
+                'bb cc cc dd'
+                'ee ee ee ee';
+            /* nav(bb), main(cc), aside(dd)의 비율을 모바일 화면에 맞게 적절히 분배 */
+            grid-template-columns: 1fr 2.2fr 1fr; 
+            grid-gap: 12px; /* 요소들 사이의 간격 */
+
+            max-width: 450px;       
+            width: 100%;            
+            margin: 0 auto;         
+            padding: 0 16px 40px 16px;      
+            box-sizing: border-box;
+        }
+
+        /* 공통 카드 스타일 (보내주신 이미지의 둥근 느낌 구현) */
+        header, nav, main, aside, footer {
+            background: #ffffff;
+            border: 1px solid #e1eef6;
+            border-radius: 16px; /* 부드러운 곡선 마감 */
+            box-shadow: 0 4px 12px rgba(163, 197, 222, 0.15); /* 은은한 하늘색 빛 도는 그림자 */
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #5b7e96;
+            transition: all 0.3s ease;
+        }
+
+        /* 마우스 올리거나 터치했을 때 부드러운 효과 */
+        header:hover, nav:hover, main:hover, aside:hover, footer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(114, 175, 222, 0.25);
+            border-color: #bad3eb;
+        }
+
+        /* Header 개별 스타일 */
+        header {
+            grid-area: aa;
+            background: linear-gradient(135deg, #9dd1f7 0%, #72b3e6 100%); /* 세련된 그라데이션 */
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 25px 15px;
+            border: none;
+            border-radius: 20px; /* 헤더는 좀 더 둥글고 시원하게 */
+        }
+        header p { margin: 0; }
+
+        /* Nav & Aside 개별 스타일 (세로로 긴 카드) */
+        nav { 
+            grid-area: bb; 
+            min-height: 220px;
+            background-color: #f9fbfd; /* 본문보다 살짝 톤다운 시켜 본문 집중도 향상 */
+        }
+        aside { 
+            grid-area: dd; 
+            min-height: 220px;
+            background-color: #f9fbfd;
+        }
+
+        /* Main (사진 들어가는 곳) 개별 스타일 */
+        main {
+            grid-area: cc;
+            display: flex;
+            justify-content: center;
+            gap: 8px; 
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        /* 메인 안의 이미지 스타일링 */
+        main img {
+            width: 48%; /* 반씩 이쁘게 나눠 갖도록 설정 */
+            height: auto;
+            aspect-ratio: 4 / 5; /* 모바일에서 보기 좋은 황금 비율 크롭 */
+            object-fit: cover; /* 이미지가 찌그러지지 않고 꽉 차게 */
+            border-radius: 12px; /* 이미지 모서리도 부드럽게 */
+            border: 1px solid #f0f6fa;
+        }
+
+        /* Footer 개별 스타일 */
+        footer {
+            grid-area: ee;
+            background-color: #ebf3f9;
+            color: #8faabf;
+            font-size: 0.8rem;
+            font-weight: 400;
+            padding: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 💘💘 -->
+    <h3> UAS</h3>    
+    <hr>    
+    <div id="wrap">
+        <header><p>Better of Two??</p></header>
+        <nav>to Robby</nav>
+        <main>
+            <a href="https://jack.dothome.co.kr/UAS/choiceL.html">
+                <img src="../Image for Web class/ms/mobi.png" alt="woman1">
+                <div class="profile_info">
+                    <span class="nickname">영숙</span>
+                    <span class="height">168cm</span>
+                    <span class="job">의사</span>
+                </div>
+            </a>
+            <a href="https://jack.dothome.co.kr/UAS/girls/JeongSuk1.png">
+                <img src="../Image for Web class/dog.png" alt="woman2">
+                <div class="profile_info">
+                    <span class="nickname">정숙</span>
+                    <span class="height">165cm</span>
+                    <span class="job">회계사</span>
+                </div>
+            </a>
+        </main>
+        <aside><a href="https://jack.dothome.co.kr/UAS/mypage.html">My Page</a></aside>
+        <footer>
+            <a href="javascript:history.back();" class="back-btn">← 뒤로가기</a>
+            <span>information</span>
+        </footer>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Can Do It!</title>
+    <link rel="stylesheet" href="./main.css">
+    <style>
+        header{grid-area: aa;}
+        nav{grid-area: bb;}
+        main{
+            grid-area: cc;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        aside{grid-area: dd;}
+        footer{grid-area: ee;}
+
+        #wrap{
+            display: grid;
+            grid-template-areas: 
+                'aa aa aa aa aa aa aa'
+                'bb cc cc cc cc cc dd'
+                'ee ee ee ee ee ee ee';
+
+            grid-template-rows: auto auto auto; 
+
+            max-width: 450px;       
+            width: 100%;            
+            margin: 0 auto;         
+            padding: 0 15px;      
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+
+    <h3 style="text-align: center;">추천친구</h3>
+    <hr>
+    <div id="wrap">
+        <header><p>Better of Two??</p></header>
+        <nav>to Robby</nav>
+        <main>
+            <img src="../Image for Web class/ms/mobi.png" alt="woman1" style="width: 160px; height: 200px; border: 1px solid skyblue;">
+            <img src="../Image for Web class/dog.png" alt="woman2" style="width: 160px; height: 200px; border: 1px solid skyblue;">
+        </main>
+        <aside>My Page</aside>
+        <footer>information</footer>
+    </div>
+    
+</body>
+</html>

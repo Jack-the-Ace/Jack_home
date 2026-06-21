@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like</title>
+    <link rel="stylesheet" href="./css/like.css">
+</head>
+<body>
+    <h3>○○님께 좋아요를 보냅니다!</h3>
+    <hr>
+    <fieldset>
+        <legend></legend>
+        <p>마음에 드는 분께 진심을 전해보세요!</p>
+        <hr>
+        <form action="like.php" method="post" enctype="multipart/form-data">
+            <dl>
+                <dt><h5>결혼가치관</h5></dt>
+                <dd><label><input type="radio" name="marry" value="비혼" checked>비혼</label></dd>
+                <dd><label><input type="radio" name="marry" value="결혼 희망">결혼 희망</label></dd>
+                <dd><label><input type="radio" name="marry" value="상관 없음">상관 없음</label></dd>
+            </dl>
+            <h4>메세지 보내기!</h4>
+            <textarea name="msg" cols="100" rows="50" placeholder="1,000자 이내로 작성해주세요! :)"></textarea><br>
+            <label>첨부파일: <input type="file" name="img"></label>
+            <hr>
+            <p>
+                <input type="submit" value="좋아요♡보내기">
+                <input type="reset" value="다시 쓰기">
+            </p>
+        </form>
+        <hr>
+        <form action="like.php" method="get">
+            <input type="submit" value="로그 페이지로 바로가기">
+        </form>
+    </fieldset>   
+    
+</body>
+</html>

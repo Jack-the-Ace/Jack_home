@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start2</title>
+    <style>
+        /* 기본 배경 및 폰트 설정 ("너는솔로" 브랜드 톤앤매너) */
+        body {
+            background-color: #f4f8fa; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            color: #2c3e50; margin: 0; padding: 0;   display: flex; justify-content: center;
+            align-items: center;  min-height: 100vh; /* 화면 전체 높이 차지 */
+        }
+        /* 메인 컨테이너 (최대 450px 모바일 크기 고정 및 세로 정렬) */
+        #wrap {
+            max-width: 450px;  width: 100%;  height: 92vh; /* 모바일 화면에 꽉 차는 적당한 높이 */
+            margin: 0 auto;  padding: 24px 20px;  box-sizing: border-box;  background: #ffffff; 
+            border: 1px solid #e1eef6;  border-radius: 24px; /* 더 부드럽고 스마트폰 앱 같은 곡선 */
+            box-shadow: 0 8px 24px rgba(163, 197, 222, 0.2);
+            /* 자식 요소들을 세로 배정하고 높이 비율을 조절하기 위한 설정 */
+            display: flex;  flex-direction: column;
+        }
+        /* 1. 로고 영역 (전체 높이의 2 비율) */
+        #logo {
+            flex: 2;
+            display: flex;  align-items: center;  justify-content: center;
+        }
+        #logo img {
+            max-height: 140px; /* 로고가 과하게 커지지 않도록 제한 */
+            width: auto;  object-fit: contain;
+        }
+        /* 구분선 그라데이션 */
+        hr{border: 0; height: 1px; width: 100%; margin: 0;background: linear-gradient(to right, transparent, #bedaf3, transparent);}
+        /* 2. GIF/이미지 메인 영역 (전체 높이의 4 비율) */
+        #gif {
+            flex: 4;
+            display: flex; align-items: center; justify-content: center; padding: 20px 0;
+        }
+        #gif img {
+            width: 90%; height: 100%; object-fit: cover; /* 이미지가 영역에 맞게 꽉 차도록 */
+            border-radius: 16px; border: 1px solid #f0f6fa; background-color: #f9fbfd; /* GIF 로딩 전 기본 배경 */
+        }
+        /* 3. 버튼 영역 (전체 높이의 4 비율) */
+        #btn_area {
+            flex: 4;  width: 100%;
+            display: flex;  align-items: center; /* 세로 기준 중앙 */
+            justify-content: space-between; gap: 12px; /* 양쪽 나란히 배치 & 버튼 사이 간격 */ 
+        }
+        /* 공통 버튼 스타일 (너는솔로 시그니처 그라데이션 및 네이비 포인트) */
+        #btn_area a {flex: 1; /* 반반씩 동일한 너비 공유 */
+            height: 56px;  border: none;  border-radius: 14px;  font-size: 1rem;  font-weight: 700;
+            cursor: pointer;  transition: all 0.25s ease;  box-shadow: 0 4px 12px rgba(114, 175, 222, 0.15);
+            display: flex;  align-items: center;  justify-content: center; text-decoration: none;
+        }
+        /* 회원가입 버튼: 서브 스타일 (연한 하늘색) */
+        #sign_in {background-color: #ebf3f9;  color: #5b7e96;}
+        #sign_in:hover{background-color: #e1eef6;  transform: translateY(-2px);}
+        /* 로그인 버튼: 메인 포인트 스타일 (시그니처 블루 그라데이션) */
+        #log_in{background: linear-gradient(135deg, #9dd1f7 0%, #72b3e6 100%);  color: #ffffff;}
+        #log_in:hover{box-shadow: 0 6px 16px rgba(114, 175, 222, 0.3); transform: translateY(-2px);}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="logo"><img src="./boys/logo.png" alt="logo"></div>
+        <hr>
+        <div id="gif">
+            <img src="./boys/couple3.png" alt="커플사진_와인">
+        </div>
+        <br>
+        <div id="btn_area">
+            <a href="http://jack.dothome.co.kr/UAS/sign_in.html" id="sign_in">회원가입</a>
+            <a href="http://jack.dothome.co.kr/UAS/log_in.html" id="log_in">로그인</a>
+        </div>
+    </div>
+
+</body>
+</html>

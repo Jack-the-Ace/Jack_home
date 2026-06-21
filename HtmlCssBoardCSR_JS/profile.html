@@ -15,7 +15,6 @@
             height: 100vh;  /* viewport height 사이즈만큼 */
         }
 
-
         #img1{
             width: 150px;
             height: 150px;
@@ -27,7 +26,6 @@
         #in1{
             display: none;
         }
-
         #in2{
             padding: .5rem 1rem;
             text-align: center;
@@ -52,7 +50,7 @@
 
         <div>
             <img id="img1" src="./image/ms_04.png" alt="pf image">
-            <!-- 이미지를 선택했을때 파일 탐색기가 보여지도록 -->
+            <!-- d이미지를 선택했을때 파일 탐색기가 보여지도록 -->
             <input id="in1" type="file" accept="image/*">
         </div>
         <div>
@@ -66,7 +64,7 @@
     <script>
         // 요소들 참조
         var img1=document.getElementById('img1');
-        var in1=document.getElementById('in1');  // 숨겨져있는 파일탐색기 선택 input 요소
+        var in1=document.getElementById('in1');  // 숨겨져있는 파일탑색기 선택 input 요소
         var in2=document.getElementById('in2');
         var btn1=document.getElementById('btn1');
 
@@ -93,28 +91,29 @@
         btn1.addEventListener('click',function(){
 
             //선택한 파일 정보 얻기
-            var file= in1.files[0];
+            //var
 
-            //파일이 없으면 전송 안하도록..
+            //파일이 없으면 전송 안하도혹..
             if(file){
-                //파일과 문자열데이터를 동시에 서버로 전달하려면.. 특별한 택배상자가 필요함
+                //파일과 문자열데이터를 동시에 
                 var formData=new FormData();
-                formData.append('img',file);            //택배상자에 파일 넣기  - 식별자와 파일
-                formData.append('nickname',in2.value);  //문자열로 다르지 않음  - 식별자와 값
+                formData.append('img',file)  //택배상자에 파일 넣기
+                formData.append('nickname',in2.value);
 
                 //닉네임+프로필사진을 서버로 전송(ajax)
                 fetch('./profileUpload.php',{
                     method:'POST',
                     body:formData
                 })
-                .then(function(res){return res.text()})
-                .then(function(text){alert(text)})
+                ////
 
             }else{
-                alert('사진 변경이 없어서 전송 안함!!');
+                alert('사진 변경이 없어서 전송 안함!!')
             }
 
+
         })
+
     </script>
     
 </body>

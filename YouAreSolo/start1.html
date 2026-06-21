@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>너는솔로 - 시작하기</title>
+    <link rel="stylesheet" href="./css/start1.css">
+    <style>
+        body {
+            background-color: #f4f9fc;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #2c3e50; margin: 0; padding: 0;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            overflow-x: hidden;
+        }
+        #wrap {
+            max-width: 450px; width: 100%; height: 100vh; padding: 20px; box-sizing: border-box;
+            background: #d9edf7; border: 1px solid #e6f2fa;  box-shadow: 0 8px 24px rgba(163, 197, 222, 0.2);
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+        }
+        #logo {flex: 2;  display: flex;  align-items: center;  justify-content: center;}
+        #logo img {max-height: 140px;  width: auto;  object-fit: contain;}
+        hr{border: 0; height: 1px; width: 100%; margin: 0;background: linear-gradient(to right, transparent, #bedaf3, transparent);}
+        .image_section {
+            flex: 7; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px;
+            overflow-y: auto; padding: 10px 0; box-sizing: border-box;  -ms-overflow-style: none; scrollbar-width: none; 
+        }
+        .image_section::-webkit-scrollbar { display: none; }
+        .photo_placeholder {
+            width: 90%; height: 160px; border: 1px solid #d9edf7; border-radius: 16px;
+            display: flex; justify-content: center; align-items: center;
+            color: #7f8c8d; font-size: 0.9rem; background-color: #fafbfc;
+            overflow: hidden; flex-shrink: 0;
+        }
+        .photo_placeholder img{
+            width: 100%; height: 100%; object-fit: cover; border-radius: 15px;
+        }
+        .next_section {flex: 2; width: 100%;  display: flex; justify-content: center; align-items: center;}
+        .arrow_btn {
+            display: flex; align-items: center; justify-content: center;  gap: 8px; width: 85%; height: 54px;
+            background: linear-gradient(135deg, #9dd1f7 0%, #72b3e6 100%);  border-radius: 27px; 
+            position: relative; cursor: pointer;  box-shadow: 0 6px 15px rgba(114, 175, 222, 0.4);
+            transition: transform 0.2s ease;  text-shadow: 0 1px 2px rgba(72, 140, 190, 0.3);
+            color: #eaf6ff; font-size: 1.05rem; font-weight: 700;  animation: floating 2s ease-in-out infinite;
+        }
+        .arrow_btn::before {
+            content: '';  display: inline-block;  width: 10px; height: 10px;  border-top: 3px solid #eaf6ff;  border-right: 3px solid #eaf6ff;
+            transform: rotate(45deg);  margin-top: -1px; 
+        }
+        @keyframes floating {
+            0% { transform: translateY(0); box-shadow: 0 6px 15px rgba(114, 175, 222, 0.4); }
+            50% { transform: translateY(-8px); box-shadow: 0 14px 20px rgba(114, 175, 222, 0.25); }
+            100% { transform: translateY(0); box-shadow: 0 6px 15px rgba(114, 175, 222, 0.4); }
+        }
+        .arrow_btn:active {animation: none; transform: scale(0.95);}
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="logo"><img src="./boys/logo.png" alt="temporary picture"></div>
+    <hr>
+    <div class="image_section">
+        <div class="ani-text line1">혹시...</div>    
+        <div class="ani-text line2">아직....</div>    
+        <div>
+            <span class="ani-text line3-1">너는....&nbsp;</span>
+            <span class="ani-text line3-2">솔로???</span>
+        </div>
+        <div class="photo_placeholder"><img src="./boys/couple1.png" alt="커플사진1"></div>
+        <div class="photo_placeholder"><img src="./boys/couple2.png" alt="커플사진2"></div>
+    </div>
+    <div class="next_section">
+        <div class="arrow_btn" onclick="location.href='./start2.html'" title="시작하기">솔로나라로 입장하기!</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -29,8 +29,8 @@
     mysqli_query($db, 'set names utf8');
 
     // 원하는 쿼리 작성
-    $sql="INSERT INTO web_board(title,msg,writer,date,hits,password) VALUES('$title','$message','$writer','$now','0','$password')";
-    $result=mysqli_query($db, $sql);   // 실행 결과를 true/false로 줌
+    $sql= "INSERT INTO web_board(title,msg,writer,date,hits,password) VALUES('$title','$message','$writer','$now','0','$password')";
+    $result= mysqli_query($db, $sql);   // 실행 결과를 true/false로 줌
 
     if($result) echo "글 저장을 성공했습니다.";
     else echo "글 저장 중 오류가 발생했습니다. 다시 시도해 주세요.";

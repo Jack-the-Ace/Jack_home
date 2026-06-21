@@ -44,7 +44,8 @@ function loaded(){
             row +=`<td class="col_title"><a href="./board/view.html?no=${board.no}">${board.title}</a></td>`;
             row +=`<td class="col_writer">${board.writer}</td>`;
             row +=`<td class="col_date">${board.date}</td>`;
-            roe +=`<td class="col_hits">${board.hits}</td>`;
+            row +=`<td class="col_hits">${board.hits}</td>`;
+            row +="</tr>";
 
             // table 요소의 자식으로 추가
             document.getElementsByClassName('board_list')[0].innerHTML+=row;

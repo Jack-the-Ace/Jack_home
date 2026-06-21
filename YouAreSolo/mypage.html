@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="./css/mypage.css">
+    <style>
+        body {
+            background-color: #f4f8fa; /* 눈이 편안한 아주 밝은 심해/하늘색 톤 배경 */
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            color: #2c3e50; margin: 0; padding: 0;
+        }
+        /* 상단 타이틀 */
+        h3 {
+            text-align: center; font-size: 1.4rem; font-weight: 700;
+            color: #3a8bcd; margin: 25px 0 10px 0; letter-spacing: -0.5px;
+        }
+        /* 구분선 스타일리시하게 변경 */
+        hr {margin-bottom: 20px;
+            border: 0; height: 1px;
+            background: linear-gradient(to right, transparent, #bedaf3, transparent);
+        }
+        /* 메인 컨테이너 (최대 450px 모바일 최적화) */
+        #wrap {
+            /* nav(bb), main(cc), aside(dd)의 비율을 모바일 화면에 맞게 적절히 분배 */
+            grid-template-columns: 0.5fr 3.2fr 0.5fr; grid-gap: 12px; /* 요소들 사이의 간격 */
+            max-width: 450px; width: 100%; height: auto; margin: 0 auto; padding: 0 16px 40px 16px; box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h3>My Page</h3>
+    <hr>
+    <div id="wrap">
+        <p class="profile_info">
+            <span class="nickname">영수</span>
+            <span class="height">186cm</span>
+            <span class="job">CEO</span>
+        </p>
+    </div>
+    <hr>
+    <h4 style="margin-left: 10px; padding: 5px;">나의 활동 로그</h4>
+    <hr>
+    <div id="log">
+        
+    </div>
+    
+</body>
+</html>

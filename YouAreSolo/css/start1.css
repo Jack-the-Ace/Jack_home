@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   [너는솔로] 인트로 텍스트 애니메이션 전용 스타일 (9초 루프)
+   ========================================================================== */
+
+/* 1. 공통 애니메이션 속성 정의 */
+.image_section .ani-text {
+    display: inline-block;
+    font-size: 1.2rem;       /* 모바일 화면에 맞춘 적당히 강조된 크기 */
+    font-weight: 800;        /* 조금 더 굵고 확실한 존재감 */
+    color: #2c3e50;          /* 기존 바디 색상과 통일 */
+    opacity: 0;              /* 기본 상태는 숨김 */
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+/* 2. 각 라인별 개별 설정 (타이밍 및 들여쓰기) */
+
+/* [1번 문구] 혹시... (0초~2초 노출 / 7초 숨김) */
+.image_section .line1 {
+    width: 100%;
+    text-align: left;
+    padding-left: 10%;
+    box-sizing: border-box;
+    animation-name: fadeLine1;
+}
+
+/* [2번 문구] 아직... (2초 대기 -> 2초 노출 -> 5초 숨김) */
+.image_section .line2 {
+    width: 100%;
+    text-align: left;
+    padding-left: 35%;       /* 계단식 들여쓰기 */
+    box-sizing: border-box;
+    animation-name: fadeLine2;
+}
+
+/* [3번 문구] 너는.... (4초 대기 -> 5초 동안 노출) */
+.image_section .line3-1 {
+    animation-name: fadeLine3_1;
+}
+
+/* [4번 문구] 솔로??? (6초 대기 -> 3초 동안 노출) */
+.image_section .line3-2 {
+    color: #e74c3c;          /* '솔로???' 부분만 강조하고 싶다면 포인트 컬러(선택사항) */
+    animation-name: fadeLine3_2;
+}
+
+/* 3번과 4번 문구를 감싸는 부모 div 들여쓰기 정렬 */
+.image_section div:has(.line3-1) {
+    width: 100%;
+    text-align: left;
+    padding-left: 55%;       /* 가장 깊은 들여쓰기 */
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   애니메이션 Keyframes 타임라인 정의 (정밀 계산)
+   ========================================================================== */
+
+/* 혹시... 타임라인 */
+@keyframes fadeLine1 {
+    0%, 15% { opacity: 1; }     /* 0초 ~ 약 1.3초 선명하게 유지 */
+    22% { opacity: 0; }         /* 2초가 되는 시점에 스르륵 소멸 */
+    100% { opacity: 0; }
+}
+
+/* 아직... 타임라인 */
+@keyframes fadeLine2 {
+    0%, 22% { opacity: 0; }     /* 2초까지는 절대 안 보임 */
+    25%, 38% { opacity: 1; }    /* 2초~3.4초 선명하게 유지 */
+    44% { opacity: 0; }         /* 4초가 되는 시점에 스르륵 소멸 */
+    100% { opacity: 0; }
+}
+
+/* 너는.... 타임라인 */
+@keyframes fadeLine3_1 {
+    0%, 44% { opacity: 0; }     /* 4초까지 대기 */
+    47%, 95% { opacity: 1; }    /* 4초부터 등장해서 루프 끝 무렵까지 유지 */
+    100% { opacity: 0; }        /* 9초 종료 시점에 아웃 */
+}
+
+/* 솔로??? 타임라인 */
+@keyframes fadeLine3_2 {
+    0%, 66% { opacity: 0; }     /* 6초까지 대기 ("너는...." 혼자 나오는 시간 2초 확보) */
+    69%, 95% { opacity: 1; }    /* 6초에 등장해서 "너는..." 옆에 나란히 안착 */
+    100% { opacity: 0; }        /* 9초 종료 시점에 함께 아웃 */
+}

@@ -1,5 +1,5 @@
 <?php
-    header('Content-Type:appplication/json; charset=utf-8');
+    header('Content-Type:application/json; charset=utf-8');
 
     //사용자가 GET방식으로 요청한 게시글 번호
     $no=$_GET['no'];

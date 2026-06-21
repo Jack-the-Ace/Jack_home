@@ -1,0 +1,13 @@
+textarea{
+    color: rgb(10, 10, 66);
+    width: 98%;
+    height: 350px;
+    border: 1px solid skyblue; border-radius: 8px; padding: 10px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+}
